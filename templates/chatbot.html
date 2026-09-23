@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>AI Car Rental Chatbot</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f4f6f9;
+        }
+
+        .chatbox{
+
+            width:500px;
+            margin:50px auto;
+            background:white;
+            border-radius:15px;
+            padding:25px;
+            box-shadow:0px 0px 15px lightgray;
+
+        }
+
+        h2{
+            text-align:center;
+            color:#0d6efd;
+        }
+
+        input{
+
+            width:100%;
+            padding:12px;
+            margin-top:20px;
+            border-radius:8px;
+            font-size:16px;
+            border:1px solid #ccc;
+
+        }
+
+        button{
+
+            width:100%;
+            padding:12px;
+            margin-top:20px;
+            background:#0d6efd;
+            color:white;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:17px;
+
+        }
+
+        .reply{
+
+            margin-top:30px;
+            background:#eef6ff;
+            padding:15px;
+            border-radius:10px;
+            font-size:18px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="chatbox">
+
+<h2>🤖 AI Car Rental Assistant</h2>
+
+<form action="/chatbot" method="POST">
+
+<label><b>Ask Your Question</b></label>
+
+<input
+type="text"
+name="question"
+placeholder="Example: Which car is best for family?"
+required>
+
+<button type="button" onclick="startListening()">
+🎤 Speak Your Question
+</button>
+
+<button type="submit">
+
+Ask AI
+
+</button>
+
+</form>
+
+{% if answer %}
+
+<div style="
+background:#d1ecf1;
+padding:12px;
+border-radius:10px;
+margin-top:20px;
+">
+
+<b>👤 You:</b>
+
+{{ request.form['question'] }}
+
+</div>
+
+<<div class="ai-answer" style="
+background:#d4edda;
+padding:12px;
+border-radius:10px;
+margin-top:15px;
+">
+
+<b>🤖 AI Assistant:</b>
+
+<br><br>
+
+{{ answer }}
+
+</div>
+
+<button type="button" onclick="speakAnswer()">
+🔊 Speak Answer
+</button>
+
+{% endif %}
+
+</div>
+
+<script>
+
+function startListening() {
+
+    const input = document.querySelector('input[name="question"]');
+
+    const SpeechRecognition =
+        window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if (!SpeechRecognition) {
+        alert("Voice recognition is not supported in this browser.");
+        return;
+    }
+
+    const recognition = new SpeechRecognition();
+
+    recognition.lang = "en-IN";
+
+    recognition.start();
+
+    recognition.onresult = function(event) {
+
+        const spokenText = event.results[0][0].transcript;
+
+        input.value = spokenText;
+
+    };
+
+}
+
+function speakAnswer() {
+
+    const answerBox = document.querySelector(".ai-answer");
+
+    if (!answerBox) {
+        return;
+    }
+
+    const answer = answerBox.innerText;
+
+    const speech = new SpeechSynthesisUtterance(answer);
+
+    speech.lang = "en-IN";
+
+    speech.rate = 1;
+
+    speech.pitch = 1;
+
+    window.speechSynthesis.speak(speech);
+}
+
+</script>
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

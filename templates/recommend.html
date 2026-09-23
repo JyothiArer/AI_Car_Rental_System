@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>AI Car Recommendation</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>🤖 AI Recommendation</h1>
+
+    <hr>
+
+    <h2>Recommended Car</h2>
+
+    <h1 style="color:green;">
+        {{ car }}
+    </h1>
+
+    <p>
+        {{ reason }}
+    </p>
+
+    <br>
+
+    <a href="/">
+        <button>Back To Home</button>
+    </a>
+
+</div>
+
+</body>
+
+</html>

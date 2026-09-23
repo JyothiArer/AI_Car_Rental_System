@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Car Booking</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f4f6f9;
+            margin:0;
+            padding:40px;
+        }
+
+        .container{
+
+            width:600px;
+            margin:auto;
+            background:white;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0px 0px 15px lightgray;
+
+        }
+
+        h1{
+
+            text-align:center;
+            color:#0d6efd;
+
+        }
+
+        label{
+
+            font-weight:bold;
+            font-size:18px;
+
+        }
+
+        input,select{
+
+            width:100%;
+            padding:12px;
+            margin-top:8px;
+            margin-bottom:18px;
+            border-radius:8px;
+            border:1px solid gray;
+            font-size:16px;
+
+        }
+
+        button{
+
+            width:100%;
+            padding:15px;
+            background:#0d6efd;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:18px;
+            cursor:pointer;
+
+        }
+
+        button:hover{
+
+            background:#084298;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚗 AI Car Rental Booking</h1>
+
+<form action="/success" method="POST">
+
+<input type="hidden" name="car" value="{{ car }}">
+
+<input type="hidden" name="price" value="{{ price }}">
+
+<label>Number of Passengers:</label>
+<input
+    type="number"
+    name="passengers"
+    min="1"
+    max="10"
+    required
+>
+
+<label>Customer Name</label>
+
+<input
+type="text"
+name="name"
+required>
+
+
+<label>Phone Number</label>
+
+<input
+type="text"
+name="phone"
+required>
+<label><b>Pickup City</b></label>
+
+<select name="pickup" required>
+
+    <option value="">Select Pickup City</option>
+
+    <option>Bengaluru</option>
+    <option>Mysuru</option>
+    <option>Mangaluru</option>
+    <option>Hubballi</option>
+    <option>Dharwad</option>
+    <option>Belagavi</option>
+    <option>Vijayapura</option>
+    <option>Kalaburagi</option>
+    <option>Ballari</option>
+    <option>Hosapete</option>
+    <option>Davanagere</option>
+    <option>Shivamogga</option>
+    <option>Tumakuru</option>
+    <option>Udupi</option>
+    <option>Hassan</option>
+    <option>Chikkamagaluru</option>
+    <option>Madikeri</option>
+    <option>Karwar</option>
+    <option>Raichur</option>
+    <option>Bidar</option>
+    <option>Kolar</option>
+    <option>Mandya</option>
+    <option>Ramanagara</option>
+    <option>Gadag</option>
+    <option>Koppal</option>
+    <option>Yadgir</option>
+    <option>Chamarajanagar</option>
+    <option>Chikkaballapur</option>
+    <option>Haveri</option>
+    <option>Ranebennur</option>
+    <option>Harihar</option>
+    <option>Byadgi</option>
+    <option>Hangal</option>
+    <option>Savanur</option>
+    <option>Shiggaon</option>
+    <option>Hirekerur</option>
+    <option>Athani</option>
+    <option>Gokak</option>
+    <option>Chikkodi</option>
+    <option>Nanjangud</option>
+    <option>Hunsur</option>
+    <option>K.R. Nagar</option>
+    <option>Periyapatna</option>
+    <option>Puttur</option>
+    <option>Sirsi</option>
+    <option>Bhadravati</option>
+    <option>Sagar</option>
+
+</select>
+
+<label><b>Pickup Area</b></label>
+
+<select name="pickup_area" required>
+
+    <option value="">Select Pickup Area</option>
+
+    <option>Kempegowda Airport</option>
+    <option>Majestic</option>
+    <option>Whitefield</option>
+    <option>Electronic City</option>
+    <option>Koramangala</option>
+    <option>Indiranagar</option>
+    <option>Railway Station</option>
+    <option>Bus Stand</option>
+    <option>City Center</option>
+    <option>Other</option>
+
+</select>
+
+<label><b>Drop City</b></label>
+
+<select name="drop" required>
+
+    <option value="">Select Drop City</option>
+
+    <option>Bengaluru</option>
+    <option>Mysuru</option>
+    <option>Mangaluru</option>
+    <option>Hubballi</option>
+    <option>Dharwad</option>
+    <option>Belagavi</option>
+    <option>Vijayapura</option>
+    <option>Kalaburagi</option>
+    <option>Ballari</option>
+    <option>Hosapete</option>
+    <option>Davanagere</option>
+    <option>Shivamogga</option>
+    <option>Tumakuru</option>
+    <option>Udupi</option>
+    <option>Hassan</option>
+    <option>Chikkamagaluru</option>
+    <option>Madikeri</option>
+    <option>Karwar</option>
+    <option>Raichur</option>
+    <option>Bidar</option>
+    <option>Kolar</option>
+    <option>Mandya</option>
+    <option>Ramanagara</option>
+    <option>Ranebennur</option>
+
+</select>
+
+<label><b>Drop Area</b></label>
+
+<select name="drop_area" required>
+
+    <option value="">Select Drop Area</option>
+
+    <option>Kempegowda Airport</option>
+    <option>Majestic</option>
+    <option>Whitefield</option>
+    <option>Electronic City</option>
+    <option>Koramangala</option>
+    <option>Indiranagar</option>
+    <option>Railway Station</option>
+    <option>Bus Stand</option>
+    <option>City Center</option>
+    <option>Other</option>
+
+</select>
+<label><b>Pickup Date</b></label>
+
+<input
+type="date"
+name="pickup_date"
+required>
+
+<label><b>Drop Date</b></label>
+
+<input
+type="date"
+name="drop_date"
+required>
+
+<label><b>Pickup Time</b></label>
+
+<input
+type="time"
+name="pickup_time"
+required>
+
+<label><b>Drop Time</b></label>
+
+<input
+type="time"
+name="drop_time"
+required>
+
+<br>
+
+<button type="submit">
+
+🚗 Confirm Booking
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>

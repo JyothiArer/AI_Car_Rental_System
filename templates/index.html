@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Car Rental Booking System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <h1>🚗 AI Car Rental Booking System</h1>
+
+    <h2>🤖 AI Car Recommendation</h2>
+
+    <form action="/recommend" method="POST">
+
+        <select name="purpose" required>
+
+            <option value="">Choose Your Requirement</option>
+            <option value="family">👨‍👩‍👧 Family Trip</option>
+            <option value="budget">💰 Budget Friendly</option>
+            <option value="luxury">✨ Luxury Ride</option>
+            <option value="offroad">🏔️ Off Road Adventure</option>
+            <option value="longdrive">🛣️ Long Drive</option>
+
+        </select>
+
+        <br><br>
+
+        <button type="submit">Get AI Recommendation</button>
+
+    </form>
+
+<br><br>
+
+<a href="/chatbot">
+    <button type="button" style="
+        background:#6f42c1;
+        color:white;
+        padding:12px 25px;
+        border:none;
+        border-radius:8px;
+        font-size:18px;
+        cursor:pointer;
+    ">
+        🤖 AI Chat Assistant
+    </button>
+</a>
+
+<hr>
+
+    <h2>Choose Your Favourite Car</h2>
+
+    <div class="container">
+
+        <!-- Hyundai Creta -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/creta.jpg') }}">
+            <h3>Hyundai Creta</h3>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>Price : ₹2500 / Day</p>
+            <a href="/booking?car=Hyundai Creta&price=2500">
+                <button>Book Now</button>
+            </a>
+        </div>
+
+        <!-- Mahindra Thar -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/thar.jpg') }}">
+            <h3>Mahindra Thar</h3>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>Price : ₹3500 / Day</p>
+            <a href="/booking?car=Mahindra Thar&price=3500">
+                <button>Book Now</button>
+            </a>
+        </div>
+
+        <!-- Maruti Swift -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/swift.jpg') }}">
+            <h3>Maruti Swift</h3>
+            <p>⭐⭐⭐⭐</p>
+            <p>Price : ₹1800 / Day</p>
+            <a href="/booking?car=Maruti Swift&price=1800">
+                <button>Book Now</button>
+            </a>
+        </div>
+
+        <!-- Kia Seltos -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/seltos.jpg') }}">
+            <h3>Kia Seltos</h3>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>Price : ₹2700 / Day</p>
+            <a href="/booking?car=Kia Seltos&price=2700">
+                <button>Book Now</button>
+            </a>
+        </div>
+
+        <!-- Tata Nexon -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/nexon.jpg') }}">
+            <h3>Tata Nexon</h3>
+            <p>⭐⭐⭐⭐</p>
+            <p>Price : ₹2200 / Day</p>
+            <a href="/booking?car=Tata Nexon&price=2200">
+                <button>Book Now</button>
+            </a>
+        </div>
+
+        <!-- Toyota Innova -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/innova.jpg') }}">
+            <h3>Toyota Innova</h3>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>Price : ₹4000 / Day</p>
+            <a href="/booking?car=Toyota Innova&price=4000">
+                <button>Book Now</button>
+            </a>
+        </div>
+
+        <!-- Honda City -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/city.jpg') }}">
+            <h3>Honda City</h3>
+            <p>⭐⭐⭐⭐</p>
+            <p>Price : ₹2600 / Day</p>
+            <a href="/booking?car=Honda City&price=2600">
+                <button>Book Now</button>
+            </a>
+        </div>
+
+        <!-- MG Hector -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/hector.jpg') }}">
+            <h3>MG Hector</h3>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>Price : ₹3500 / Day</p>
+            <a href="/booking?car=MG Hector&price=3500">
+                <button>Book Now</button>
+            </a>
+        </div>
+
+        <!-- Hyundai Venue -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/venue.jpg') }}">
+            <h3>Hyundai Venue</h3>
+            <p>⭐⭐⭐⭐</p>
+            <p>Price : ₹2400 / Day</p>
+            <a href="/booking?car=Hyundai Venue&price=2400">
+                <button>Book Now</button>
+            </a>
+        </div>
+
+        <!-- Mahindra XUV700 -->
+        <div class="card">
+            <img src="{{ url_for('static', filename='images/xuv700.jpg') }}">
+            <h3>Mahindra XUV700</h3>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>Price : ₹4200 / Day</p>
+            <a href="/booking?car=Mahindra XUV700&price=4200">
+                <button>Book Now</button>
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>

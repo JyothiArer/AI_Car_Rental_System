@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>AI Admin Dashboard</title>
+
+    <style>
+
+        body{
+            font-family:Arial;
+            background:#f4f6f9;
+            margin:30px;
+        }
+
+        h1{
+            text-align:center;
+            color:#0d6efd;
+        }
+
+        .cards{
+            display:flex;
+            justify-content:space-around;
+            margin:30px 0;
+            flex-wrap:wrap;
+        }
+
+        .card{
+            background:white;
+            width:250px;
+            padding:20px;
+            border-radius:15px;
+            text-align:center;
+            box-shadow:0 5px 15px rgba(0,0,0,.2);
+            margin:10px;
+        }
+
+        .card h2{
+            color:#0d6efd;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+        }
+
+        th,td{
+            border:1px solid #ddd;
+            padding:12px;
+            text-align:center;
+        }
+
+        th{
+            background:#0d6efd;
+            color:white;
+        }
+
+        tr:nth-child(even){
+            background:#f8f8f8;
+        }
+
+        button{
+            background:red;
+            color:white;
+            border:none;
+            padding:8px 15px;
+            border-radius:8px;
+            cursor:pointer;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>🚗 AI Car Rental Dashboard</h1>
+
+<div class="cards">
+
+    <div class="card">
+
+        <h2>{{ total_bookings }}</h2>
+
+        <p>Total Bookings</p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>₹ {{ revenue }}</h2>
+
+        <p>Total Revenue</p>
+
+    </div>
+
+
+    <div class="card">
+
+        <h2>{{ most_booked_car }}</h2>
+
+        <p>Most Booked Car</p>
+
+    </div>
+
+</div>
+
+
+<table>
+
+<tr>
+
+<th>ID</th>
+<th>Name</th>
+<th>Phone</th>
+<th>Car</th>
+<th>Pickup</th>
+<th>Drop</th>
+<th>Pickup Date</th>
+<th>Drop Date</th>
+<th>Rental Days</th>
+<th>Total Price</th>
+<th>Status</th>
+<th>Action</th>
+
+</tr>
+
+
+{% for booking in bookings %}
+
+<tr>
+
+<td>{{ booking[0] }}</td>   <!-- Booking ID -->
+
+<td>{{ booking[1] }}</td>   <!-- Name -->
+
+<td>{{ booking[2] }}</td>   <!-- Phone -->
+
+<td>{{ booking[3] }}</td>   <!-- Car -->
+
+<td>{{ booking[4] }}</td>   <!-- Pickup -->
+
+<td>{{ booking[5] }}</td>   <!-- Drop -->
+
+<td>{{ booking[6] }}</td>   <!-- Pickup Date -->
+
+<td>{{ booking[7] }}</td>   <!-- Drop Date -->
+
+<td>{{ booking[8] }}</td>   <!-- Rental Days -->
+
+<td>₹ {{ booking[9] }}</td>   <!-- Total Price -->
+
+<td>{{ booking[10] }}</td>   <!-- Status -->
+
+
+<td>
+
+{% if booking[10] == "Booked" %}
+
+<form action="/cancel_booking" method="POST">
+
+<input
+    type="hidden"
+    name="booking_id"
+    value="{{ booking[0] }}"
+>
+
+<button type="submit">
+    Cancel
+</button>
+
+</form>
+
+{% else %}
+
+<span style="color:gray; font-weight:bold;">
+    Cancelled
+</span>
+
+{% endif %}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+</body>
+
+</html>
